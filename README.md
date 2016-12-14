@@ -1,7 +1,7 @@
 # Terminus Plugin Example
 
-[![Terminus v0.x Compatible](https://img.shields.io/badge/terminus-v0.x-green.svg)](https://github.com/pantheon-systems/terminus-plugin-example/tree/0.x)
 [![Terminus v1.x Compatible](https://img.shields.io/badge/terminus-v1.x-green.svg)](https://github.com/pantheon-systems/terminus-plugin-example/tree/1.x)
+[![Terminus v0.x Compatible](https://img.shields.io/badge/terminus-v0.x-green.svg)](https://github.com/pantheon-systems/terminus-plugin-example/tree/0.x)
 
 A simple plugin for Terminus-CLI to demonstrate how to add new commands.
 
