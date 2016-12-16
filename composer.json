@@ -1,5 +1,5 @@
 {
-    "name": "pantheon/terminus-plugin-example",
+    "name": "pantheon-systems/terminus-plugin-example",
     "description": "An example Terminus command",
     "type": "terminus-plugin",
     "license": "MIT",
