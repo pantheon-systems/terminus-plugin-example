@@ -28,6 +28,13 @@ jobs:
             - run:
                 name: Functional
                 command: composer functional
+    code-style:
+        <<: *defaults
+        steps:
+            - checkout
+            - run:
+                name: Set up environment
+                command: ./.circleci/set-up-globals.sh
             - run:
                 name: Style
                 command: composer cs
@@ -37,3 +44,4 @@ workflows:
   build_test:
     jobs:
       - test
+      - code-style
