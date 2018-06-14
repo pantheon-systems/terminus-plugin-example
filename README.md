@@ -5,9 +5,7 @@
 
 A simple plugin for Terminus-CLI to demonstrate how to add new commands.
 
-Adds commands 'hello' and 'auth:hello' to Terminus 1.x. For a version that works with Terminus 0.x, see the [0.x branch](https://github.com/pantheon-systems/terminus-plugin-example/tree/0.x).
-
-Learn more about Terminus and Terminus Plugins at:
+Adds commands 'hello' and 'auth:hello' to Terminus. Learn more about Terminus and Terminus Plugins at:
 [https://github.com/pantheon-systems/cli/wiki/Plugins](https://github.com/pantheon-systems/cli/wiki/Plugins)
 
 ## Configuration
@@ -26,6 +24,20 @@ On Mac OS/Linux:
 mkdir -p ~/.terminus/plugins
 curl https://github.com/pantheon-systems/terminus-plugin-example/archive/1.x.tar.gz -L | tar -C ~/.terminus/plugins -xvz
 ```
+
+## Testing
+This example project includes four testing targets:
+
+* `composer lint`: Syntax-check all php source files.
+* `composer cs`: Code-style check.
+* `composer unit`: Run unit tests with phpunit
+* `composer functional`: Run functional test with bats
+
+To run all tests together, use `composer test`.
+
+Note that prior to running the tests, you should first run:
+* `composer install`
+* `composer install-tools`
 
 ## Help
 Run `terminus help auth:hello` for help.

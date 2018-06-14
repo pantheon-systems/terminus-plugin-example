@@ -25,19 +25,25 @@ class AuthHelloCommand extends TerminusCommand
      *
      * @authenticated
      */
-    public function sayHello()
+    public function sayHello($options = ['type' => 'hello'])
+    {
+        $name = $this->getAuthenticatedUserName();
+        $greeter = new Greeter($options['type']);
+        $this->log()->notice($greeter->render($name));
+    }
+
+    protected function getAuthenticatedUserName()
     {
         // Commands can retrieve information about the currently logged in user
         // by calling the `session` function to get a copy of the session object.
-        if ($user = $this->session()->getUser()) {
-            // For efficiency the logged in user's details are not automatically
-            // fetched from the API. We call `fetch` on the object to get the
-            // user's name.
-            $user->fetch();
-            // The logger can handle the replacement of variables.
-            $this->log()->notice("Hello, {user}!", ['user' => $user->getName()]);
-        } else {
-            $this->log()->notice("Hello, Anonymous!");
+        $user = $this->session()->getUser();
+        if (!$user) {
+            return 'Anonymous';
         }
+        // For efficiency the logged in user's details are not automatically
+        // fetched from the API. We call `fetch` on the object to get the
+        // user's name.
+        $user->fetch();
+        return $user->getName();
     }
 }
