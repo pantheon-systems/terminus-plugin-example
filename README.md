@@ -3,8 +3,6 @@
 [![CircleCI](https://circleci.com/gh/pantheon-systems/terminus-plugin-example.svg?style=shield)](https://circleci.com/gh/pantheon-systems/terminus-plugin-example)
 [![Terminus v1.x Compatible](https://img.shields.io/badge/terminus-v1.x-green.svg)](https://github.com/pantheon-systems/terminus-secrets-plugin/tree/1.x)
 
-[![Terminus v1.x Compatible](https://img.shields.io/badge/terminus-v1.x-green.svg)](https://github.com/pantheon-systems/terminus-plugin-example/tree/1.x)
-
 A simple plugin for Terminus-CLI to demonstrate how to add new commands.
 
 Adds commands 'hello' and 'auth:hello' to Terminus. Learn more about Terminus and Terminus Plugins at:
