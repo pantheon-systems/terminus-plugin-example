@@ -10,6 +10,6 @@
   run terminus auth:login --machine-token="$TERMINUS_TOKEN"
   [[ $output == *"[notice] Logging in via machine token"* ]]
   run terminus auth:hello
-  [[ $output == *"Hello, "* ]]
+  [[ $output == *"Hello, Pantheon CI Bot"* ]]
   [ "$status" -eq 0 ]
 }
