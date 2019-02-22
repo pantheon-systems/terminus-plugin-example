@@ -16,6 +16,8 @@ jobs:
             - run:
                 name: Set up environment
                 command: ./.circleci/set-up-globals.sh
+            - run:
+                name: Check Terminus version
                 command: terminus --version
             - run:
                 name: Dependencies
