@@ -9,7 +9,7 @@ version: 2
 jobs:
     unit:
         docker:
-            - image: quay.io/pantheon-public/terminus-plugin-test:4.x
+            - image: quay.io/pantheon-public/terminus-plugin-test:2.x
         <<: *defaults
         steps:
             - checkout
@@ -27,7 +27,7 @@ jobs:
                 command: composer unit
     terminus-1:
         docker:
-            - image: quay.io/pantheon-public/terminus-plugin-test:2.x
+            - image: quay.io/pantheon-public/terminus-plugin-test:1.x
         <<: *defaults
         steps:
             - checkout
@@ -45,7 +45,7 @@ jobs:
                 command: composer functional
     terminus-2:
         docker:
-            - image: quay.io/pantheon-public/terminus-plugin-test:4.x
+            - image: quay.io/pantheon-public/terminus-plugin-test:2.x
         <<: *defaults
         steps:
             - checkout
@@ -63,7 +63,7 @@ jobs:
                 command: composer functional
     code-style:
         docker:
-            - image: quay.io/pantheon-public/terminus-plugin-test:4.x
+            - image: quay.io/pantheon-public/terminus-plugin-test:2.x
         <<: *defaults
         steps:
             - checkout
