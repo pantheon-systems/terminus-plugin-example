@@ -1,6 +1,4 @@
 defaults: &defaults
-  docker:
-    - image: quay.io/pantheon-public/terminus-plugin-test:2.x
   working_directory: ~/work/terminus_plugin
   environment:
     BASH_ENV: ~/.bashrc
@@ -9,7 +7,27 @@ defaults: &defaults
 
 version: 2
 jobs:
-    test:
+    unit:
+        docker:
+            - image: quay.io/pantheon-public/terminus-plugin-test:4.x
+        <<: *defaults
+        steps:
+            - checkout
+            - run:
+                name: Set up environment
+                command: ./.circleci/set-up-globals.sh
+            - run:
+                name: Dependencies
+                command: composer install
+            - run:
+                name: Lint
+                command: composer lint
+            - run:
+                name: Unit
+                command: composer unit
+    terminus-1:
+        docker:
+            - image: quay.io/pantheon-public/terminus-plugin-test:2.x
         <<: *defaults
         steps:
             - checkout
@@ -23,15 +41,29 @@ jobs:
                 name: Dependencies
                 command: composer install
             - run:
-                name: Lint
-                command: composer lint
+                name: Functional
+                command: composer functional
+    terminus-2:
+        docker:
+            - image: quay.io/pantheon-public/terminus-plugin-test:4.x
+        <<: *defaults
+        steps:
+            - checkout
             - run:
-                name: Unit
-                command: composer unit
+                name: Set up environment
+                command: ./.circleci/set-up-globals.sh
+            - run:
+                name: Check Terminus version
+                command: terminus --version
+            - run:
+                name: Dependencies
+                command: composer install
             - run:
                 name: Functional
                 command: composer functional
     code-style:
+        docker:
+            - image: quay.io/pantheon-public/terminus-plugin-test:4.x
         <<: *defaults
         steps:
             - checkout
@@ -46,5 +78,12 @@ workflows:
   version: 2
   build_test:
     jobs:
-      - test
+      - unit
       - code-style
+      - terminus-1:
+          requires:
+            - unit
+      - terminus-2:
+          requires:
+            - unit
+
