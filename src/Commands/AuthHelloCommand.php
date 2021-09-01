@@ -1,12 +1,8 @@
 <?php
 /**
- * This variation on the Hello command shows how to add new subcommands to an
- * existing command.
- *
- * To add your subcommands to an existing command use a @command tag with the same
- * value as the existing tag.
- *
- * This command can be invoked by running `terminus auth hello`
+ * This variation on the Hello command shows how use the `@authenticated`
+ * attribute to signal Terminus to require an authenticated session to
+ * use this command.
  */
 
 namespace Pantheon\TerminusHello\Commands;

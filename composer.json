@@ -6,6 +6,15 @@
     "autoload": {
         "psr-4": { "Pantheon\\TerminusHello\\": "src" }
     },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8.36",
+        "doctrine/instantiator": "1.0.5",
+        "phpdocumentor/reflection-docblock": "3.2.2",
+        "symfony/polyfill-ctype": "v1.11.0",
+        "symfony/yaml": "v3.4.26",
+        "webmozart/assert": "1.4.0",
+        "phpspec/prophecy": "1.8.0"
+    },
     "scripts": {
         "cs": "phpcs --standard=PSR2 -n src",
         "cbf": "phpcbf --standard=PSR2 -n src",
@@ -13,12 +22,8 @@
         "unit": "phpunit --colors=always tests",
         "functional": "TERMINUS_PLUGINS_DIR=.. PATH=tools/bin:$PATH bats -p -t tests/functional",
         "install-bats": "if [ ! -f tools/bin/bats ] ; then git clone https://github.com/sstephenson/bats.git tools/bats; tools/bats/install.sh tools; fi",
-        "install-phpcs": "mkdir -p tools/phpcs && cd tools/phpcs && COMPOSER_BIN_DIR=../../vendor/bin composer require squizlabs/php_codesniffer:^2.7",
-        "install-phpunit": "mkdir -p tools/phpunit && cd tools/phpunit && COMPOSER_BIN_DIR=../../vendor/bin composer require phpunit/phpunit:^6",
         "install-tools": [
-            "@install-bats",
-            "@install-phpcs",
-            "@install-phpunit"
+            "@install-bats"
         ],
         "test": [
             "@lint",
@@ -29,7 +34,7 @@
     },
     "extra": {
         "terminus": {
-            "compatible-version": "^1|^2"
+            "compatible-version": "^1||^2||^3"
         }
     }
 }

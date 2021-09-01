@@ -1,12 +1,12 @@
 # Terminus Plugin Example
 
 [![CircleCI](https://circleci.com/gh/pantheon-systems/terminus-plugin-example.svg?style=shield)](https://circleci.com/gh/pantheon-systems/terminus-plugin-example)
-[![Terminus v1.x Compatible](https://img.shields.io/badge/terminus-v1.x-green.svg)](https://github.com/pantheon-systems/terminus-secrets-plugin/tree/1.x)
+[![Terminus v2.x - v3.x Compatible](https://img.shields.io/badge/terminus-2.x%20--%203.x-green.svg)](https://github.com/pantheon-systems/terminus-plugin-example/tree/2.x)
 
 A simple plugin for Terminus-CLI to demonstrate how to add new commands.
 
-Adds commands 'hello' and 'auth:hello' to Terminus. Learn more about Terminus and Terminus Plugins at:
-[https://github.com/pantheon-systems/cli/wiki/Plugins](https://github.com/pantheon-systems/cli/wiki/Plugins)
+Adds commands 'hello' and 'auth:hello' to Terminus. Learn more about Terminus Plugins in the
+[Terminus Plugins documentation](https://pantheon.io/docs/terminus/plugins)
 
 ## Configuration
 
@@ -17,12 +17,16 @@ These commands require no configuration
 * `terminus auth:hello`
 
 ## Installation
-To install this plugin place it in `~/.terminus/plugins/`.
 
-On Mac OS/Linux:
+To install this plugin using Terminus 3:
+```
+terminus self:plugin:install terminus-plugin-example
+```
+
+On older versions of Terminus:
 ```
 mkdir -p ~/.terminus/plugins
-curl https://github.com/pantheon-systems/terminus-plugin-example/archive/1.x.tar.gz -L | tar -C ~/.terminus/plugins -xvz
+curl https://github.com/pantheon-systems/terminus-plugin-example/archive/2.x.tar.gz -L | tar -C ~/.terminus/plugins -xvz
 ```
 
 ## Testing

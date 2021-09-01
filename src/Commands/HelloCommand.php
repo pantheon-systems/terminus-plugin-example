@@ -35,11 +35,11 @@ class HelloCommand extends TerminusCommand
      * Print the classic message to the log.
      *
      * @command hello
+     * @param string $name Who to say "hello" to.
+     * @option $first This is the first time we've said hello.
      */
-    public function sayHello()
+    public function sayHello($name = 'World', $options = ['first' => false])
     {
-        $name = 'World';
-
         // All commands have access to a logger to output informational messages
         // to the user.
         // By default all messages at 'notice' or above are sent to STDERR.
@@ -48,6 +48,9 @@ class HelloCommand extends TerminusCommand
         // function so that it is sent to STDOUT to be piped to other programs, saved
         // to a file, etc.
         // Note that the logger can do variable replacement.
-        $this->log()->notice("Hello, {name}!", ['name' => $name]);
+        $this->log()->notice("Hello, {user}!", ['user' => $name]);
+        if ($options['first']) {
+            $this->log()->notice("Pleased to meet you.");
+        }
     }
 }
