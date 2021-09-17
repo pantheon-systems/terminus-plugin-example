@@ -53,6 +53,9 @@ jobs:
                 name: Set up environment
                 command: ./.circleci/set-up-globals.sh
             - run:
+                name: Run composer install
+                command: composer install
+            - run:
                 name: Style
                 command: composer cs
 
