@@ -8,8 +8,8 @@
 
 @test "run auth:hello command after authentication" {
   run terminus auth:login --machine-token="$TERMINUS_TOKEN"
-  [[ $output == *"[notice] Logging in via machine token"* ]]
+  [[ $output == *"[notice] Logged in via machine token"* ]]
   run terminus auth:hello
-  [[ $output == *"Hello, Pantheon CI Bot"* ]]
+  [[ $output == *"Hello, "* ]]
   [ "$status" -eq 0 ]
 }
