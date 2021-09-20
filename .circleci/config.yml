@@ -9,7 +9,7 @@ version: 2
 jobs:
     unit:
         docker:
-            - image: pantheonoss/terminus-plugin-test:3.x
+            - image: pantheonpublic/terminus-plugin-test:3.x
         <<: *defaults
         steps:
             - checkout
@@ -27,7 +27,7 @@ jobs:
                 command: composer unit
     terminus-3:
         docker:
-            - image: pantheonoss/terminus-plugin-test:3.x
+            - image: pantheonpublic/terminus-plugin-test:3.x
         <<: *defaults
         steps:
             - checkout
@@ -45,7 +45,7 @@ jobs:
                 command: composer functional
     code-style:
         docker:
-            - image: pantheonoss/terminus-plugin-test:3.x
+            - image: pantheonpublic/terminus-plugin-test:3.x
         <<: *defaults
         steps:
             - checkout
