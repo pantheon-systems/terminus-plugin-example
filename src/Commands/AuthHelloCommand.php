@@ -14,7 +14,9 @@ namespace Pantheon\TerminusHello\Commands;
 use Pantheon\Terminus\Commands\TerminusCommand;
 
 /**
- * Say hello to the user
+ * Say hello to the user.
+ *
+ * When you rename this class, make sure the new name ends with "Command" so that Terminus can find it.
  */
 class AuthHelloCommand extends TerminusCommand
 {
