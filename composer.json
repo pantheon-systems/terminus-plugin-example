@@ -30,7 +30,7 @@
     },
     "extra": {
         "terminus": {
-            "compatible-version": "^1||^2||^3"
+            "compatible-version": "^1||^2||^3||^4"
         }
     }
 }
