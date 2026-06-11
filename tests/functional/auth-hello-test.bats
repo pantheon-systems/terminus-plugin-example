@@ -7,6 +7,9 @@
 }
 
 @test "run auth:hello command after authentication" {
+  if [ -z "$TERMINUS_TOKEN" ]; then
+    skip "TERMINUS_TOKEN not set"
+  fi
   run terminus auth:login --machine-token="$TERMINUS_TOKEN"
   [[ $output == *"[notice] Logged in via machine token"* ]]
   run terminus auth:hello
