@@ -1,6 +1,6 @@
 # Terminus Plugin Example
 
-[![CircleCI](https://circleci.com/gh/pantheon-systems/terminus-plugin-example.svg?style=shield)](https://circleci.com/gh/pantheon-systems/terminus-plugin-example)
+[![CI](https://github.com/pantheon-systems/terminus-plugin-example/actions/workflows/main.yaml/badge.svg)](https://github.com/pantheon-systems/terminus-plugin-example/actions/workflows/main.yaml)
 [![Actively Maintained](https://img.shields.io/badge/Pantheon-Actively_Maintained-yellow?logo=pantheon&color=FFDC28)](https://pantheon.io/docs/oss-support-levels#actively-maintained-support)
 
 [![Terminus v2.x - v3.x Compatible](https://img.shields.io/badge/terminus-2.x%20--%203.x-green.svg)](https://github.com/pantheon-systems/terminus-plugin-example/tree/2.x)
@@ -44,6 +44,10 @@ To run all tests together, use `composer test`.
 Note that prior to running the tests, you should first run:
 * `composer install`
 * `composer install-tools`
+
+### CI
+
+All jobs run on every push and PR with no setup needed. Tests that require a `TERMINUS_TOKEN` (a Terminus machine token) are skipped automatically when the secret isn't set.
 
 ## Help
 Run `terminus help auth:hello` for help.
