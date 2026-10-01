@@ -32,5 +32,10 @@
         "terminus": {
             "compatible-version": "^1||^2||^3||^4"
         }
+    },
+    "config": {
+        "audit": {
+            "block-insecure": false
+        }
     }
 }
